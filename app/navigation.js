@@ -1,9 +1,10 @@
 import { use } from "react";
-
 import { getNavigationData } from "@/lib/api";
 import MainMenu from "@/components/MainMenu";
 import Container from "@/components/Container";
 import ThemeToggle from "@/components/ThemeToggle";
+
+import Image from "next/image";
 
 const Navigation = () => {
   const navElementsData = use(getNavigationData());
@@ -13,7 +14,12 @@ const Navigation = () => {
       <Container>
         <div className="flex justify-between items-center  ">
           <div className="logo">
-            <span className=" text-3xl uppercase font-bold ">Black Panda</span>
+            <Image
+              src="/logo.svg"
+              width={100}
+              height={60}
+              alt="black panda logo"
+            />
           </div>
           <ul className="flex gap-x-4">
             <MainMenu navElements={navElementsData} />

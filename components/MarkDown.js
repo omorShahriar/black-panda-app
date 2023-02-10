@@ -4,6 +4,11 @@ import ReactMarkdown from "react-markdown";
 // markdown scheme: ![AltText {priority}{768x432}](/image.jpg)
 
 const MarkDown = ({ content }) => {
+  const transformImageUri = (uri) =>
+    uri.startsWith("http")
+      ? uri
+      : `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${uri}`;
+
   const MarkdownComponents = {
     p: (paragraph) => {
       const { node } = paragraph;
@@ -20,10 +25,11 @@ const MarkDown = ({ content }) => {
         const hasCaption = metastring?.toLowerCase().includes("{caption:");
         const caption = metastring?.match(/{caption: (.*?)}/)?.pop();
 
+        const imgSrc = transformImageUri(image.properties.src);
         return (
           <div className="postImgWrapper">
             <Image
-              src={image.properties.src}
+              src={imgSrc}
               width={width}
               height={height}
               className="postImg"
@@ -46,11 +52,6 @@ const MarkDown = ({ content }) => {
       // eslint-disable-next-line react/no-children-prop
       children={content}
       components={MarkdownComponents}
-      transformImageUri={(uri) =>
-        uri.startsWith("http")
-          ? uri
-          : `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${uri}`
-      }
     />
   );
 };

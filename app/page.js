@@ -1,12 +1,16 @@
-import Image from "next/image";
+import { use } from "react";
 import Container from "@/components/Container";
+import { getHomePageData } from "@/lib/api";
+import Slider from "@/components/Slider";
+
 export default function Home() {
+  const { hero_slider } = use(getHomePageData());
   return (
     <main>
       <Container>
-        <h1 className="text-3xl text-zinc-900 dark:text-white font-bold ">
-          hello world
-        </h1>
+        <div>
+          <Slider slides={hero_slider.slides} />
+        </div>
       </Container>
     </main>
   );
