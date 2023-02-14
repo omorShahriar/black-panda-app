@@ -10,7 +10,7 @@ const Navigation = () => {
   const navElementsData = use(getNavigationData());
 
   return (
-    <div className="py-4 border-b-2 border-b-zinc-300 dark:border-b-zinc-700">
+    <div className="py-4 border-b-2 border-b-zinc-300 dark:border-b-zinc-700 bg-white dark:bg-zinc-900 ">
       <Container>
         <div className="flex justify-between items-center  ">
           <div className="logo">
@@ -24,7 +24,10 @@ const Navigation = () => {
           <ul className="flex gap-x-4">
             <MainMenu navElements={navElementsData} />
           </ul>
-          <ThemeToggle />
+          <div className=" w-12 h-12 flex items-center justify-center">
+            {" "}
+            <ThemeToggle />
+          </div>
         </div>
       </Container>
     </div>

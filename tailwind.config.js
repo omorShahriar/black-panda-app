@@ -10,21 +10,38 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    typography: (theme) => ({
-      dark: {
-        css: {
-          color: "white",
-        },
-      },
-    }),
     extend: {
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: theme("colors.gray.300"),
+            h1: {
+              color: theme("colors.gray.100"),
+            },
+            h2: {
+              color: theme("colors.gray.100"),
+            },
+            h3: {
+              color: theme("colors.gray.100"),
+            },
+            th: {
+              color: theme("colors.gray.100"),
+            },
+          },
+        },
+      }),
       gridTemplateColumns: {
         fluid: "repeat(auto-fit,minmax(15rem,1fr))",
       },
     },
   },
   variants: {
-    typography: ["dark"],
+    extend: {
+      typography: ["dark"],
+    },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp"),
+  ],
 };

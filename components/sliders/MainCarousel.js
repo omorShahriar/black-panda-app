@@ -1,14 +1,15 @@
 "use client";
+
 import Image from "next/image";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { getStrapiMedia } from "@/lib/media";
-import { Navigation, Autoplay, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
+import { getStrapiMedia } from "@/lib/media";
+import { Navigation, Autoplay, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 const Slider = ({ slides }) => {
   return (
     <Swiper
@@ -34,7 +35,7 @@ const Slider = ({ slides }) => {
                 height={height}
                 alt={slide.title}
                 priority
-                className="rounded-md w-full max-h-80 object-cover object-center  "
+                className="rounded-md w-full max-h-96 object-cover object-center  "
               />
             </div>
           </SwiperSlide>

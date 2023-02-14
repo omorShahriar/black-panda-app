@@ -13,7 +13,7 @@ const MainMenu = ({ navElements }) => {
             <Popover className="relative" key={element.label}>
               {({ open }) => (
                 <>
-                  <Popover.Button className=" group inline-flex items-center  px-3 py-2   focus:outline-none ">
+                  <Popover.Button className=" group inline-flex items-center  px-3 py-2   focus:outline-none  text-xl font-semibold">
                     <span>{element.label}</span>
                   </Popover.Button>
                   <Transition
@@ -35,12 +35,15 @@ const MainMenu = ({ navElements }) => {
                                 key={section.label}
                                 className=" border-r-2 border-r-zinc-700 dark:border-r-zinc-300 last:border-r-0 "
                               >
-                                <p className=" text-xl font-medium mb-4 ">
+                                <p className=" text-2xl font-bold mb-4 ">
                                   {section.label}
                                 </p>
                                 <ul className="flex flex-col gap-y-1">
                                   {section.links.map((link) => (
-                                    <li key={link.label} className="">
+                                    <li
+                                      key={link.label}
+                                      className="  font-semibold "
+                                    >
                                       <Link href={link.href}>{link.label}</Link>
                                     </li>
                                   ))}
@@ -58,7 +61,7 @@ const MainMenu = ({ navElements }) => {
           );
         }
         return (
-          <li key={element.label} className="px-3 py-2">
+          <li key={element.label} className="px-3 py-2 text-xl font-semibold">
             <Link href={element.href}>{element.label}</Link>
           </li>
         );
