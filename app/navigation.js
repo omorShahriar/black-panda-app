@@ -10,7 +10,7 @@ const Navigation = () => {
   const navElementsData = use(getNavigationData());
 
   return (
-    <div className="py-4 border-b-2 border-b-zinc-300 dark:border-b-zinc-700 bg-white dark:bg-zinc-900 ">
+    <div className="py-4   ">
       <Container>
         <div className="flex justify-between items-center  ">
           <div className="logo">

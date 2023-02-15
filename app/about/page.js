@@ -10,7 +10,7 @@ const About = () => {
   const blockData = use(getAboutPageData());
   return (
     <Container>
-      <div className=" prose dark:prose-dark max-w-none">
+      <div className=" prose lg:prose-xl dark:prose-dark max-w-none">
         <MarkDown content={blockData.content} />
       </div>
     </Container>

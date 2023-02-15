@@ -11,7 +11,7 @@ const MainMenu = ({ navElements }) => {
         if (element.__component == "menu.dropdown") {
           return (
             <Popover className="relative" key={element.label}>
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
                   <Popover.Button className=" group inline-flex items-center  px-3 py-2   focus:outline-none  text-xl font-semibold">
                     <span>{element.label}</span>
@@ -44,7 +44,9 @@ const MainMenu = ({ navElements }) => {
                                       key={link.label}
                                       className="  font-semibold "
                                     >
-                                      <Link href={link.href}>{link.label}</Link>
+                                      <Link href={link.href} onClick={close}>
+                                        {link.label}
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
