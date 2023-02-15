@@ -1,7 +1,7 @@
 import SearchBar from "@/components/SearchBar";
 import "./globals.css";
-import Navigation from "./Navigation";
-import { Providers } from "./Providers";
+import Navigation from "@/components/Navigation";
+import { Providers } from "@/components/Providers";
 import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
