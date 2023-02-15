@@ -1,9 +1,17 @@
 import Container from "@/components/Container";
-import { getArticleBySlug } from "@/lib/api";
+import { getArticles, getArticleBySlug } from "@/lib/api";
 import Image from "next/image";
 import { getStrapiMedia } from "@/lib/media";
 import { Title } from "@/components/Heading";
 import MarkDown from "@/components/MarkDown";
+
+export async function generateStaticParams() {
+  const { data: articles } = await getArticles();
+
+  return articles.map((article) => ({
+    slug: article.attributes.slug,
+  }));
+}
 
 export const page = async ({ params }) => {
   const articleData = await getArticleBySlug(params.slug);

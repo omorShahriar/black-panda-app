@@ -1,6 +1,14 @@
 import Header from "@/components/Header";
-import { getCategoryBySlug } from "@/lib/api";
+import { getCategories, getCategoryBySlug } from "@/lib/api";
 import Card from "@/components/Card";
+
+export async function generateStaticParams() {
+  const categoryData = await getCategories();
+
+  return categoryData.map((category) => ({
+    slug: category.attributes.slug,
+  }));
+}
 
 const page = async ({ params }) => {
   const categoryData = await getCategoryBySlug(params.slug);
