@@ -26,7 +26,7 @@ const Slider = ({ slides }) => {
           <SwiperSlide key={slide.title}>
             {" "}
             <div className="mt-4 relative  ">
-              <p className="text-3xl font-bold capitalize bg-gray-900/60 p-4 text-white absolute bottom-8 left-8 ">
+              <p className="md:text-3xl text-xl font-bold capitalize bg-gray-900/60 md:p-4 p-3 text-white absolute bottom-8 left-8 ">
                 {slide.title}
               </p>
               <Image

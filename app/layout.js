@@ -13,13 +13,14 @@ export default function RootLayout({ children }) {
       */}
       <head />
 
-      <body className="bg-white dark:bg-zinc-900 transition-colors duration-300">
+      <body className="">
         <Providers>
           <header className="bg-white dark:bg-zinc-900 sticky top-0 z-50 border-b-2 border-b-zinc-300 dark:border-b-zinc-700">
             <Navigation />
             <SearchBar />
           </header>
-          {children}
+          <main className=""> {children}</main>
+
           <Footer />
         </Providers>
       </body>

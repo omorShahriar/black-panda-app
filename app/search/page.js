@@ -11,9 +11,9 @@ const page = async ({ searchParams }) => {
     <div>
       <Container>
         <PrimaryHeading>Products found : {searchResults.length}</PrimaryHeading>
-        <div className="grid grid-cols-12 gap-16 pb-16">
+        <div className="grid grid-cols-12 gap-4 pb-16">
           {searchResults.map((product) => (
-            <div key={product.id} className=" col-span-3 ">
+            <div key={product.id} className=" md:col-span-3 col-span-12 ">
               {" "}
               <Card info={product.attributes} cardType="product" />
             </div>

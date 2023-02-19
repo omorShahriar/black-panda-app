@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
 
 const Navigation = () => {
   const navElementsData = use(getNavigationData());
@@ -21,12 +22,18 @@ const Navigation = () => {
               alt="black panda logo"
             />
           </div>
-          <ul className="flex gap-x-4">
+          <ul className="hidden md:flex gap-x-4">
             <MainMenu navElements={navElementsData} />
           </ul>
-          <div className=" w-12 h-12 flex items-center justify-center">
+          <div className="flex gap-x-4 items-center">
             {" "}
-            <ThemeToggle />
+            <div className=" w-12 h-12 flex items-center justify-center">
+              {" "}
+              <ThemeToggle />
+            </div>
+            <div className="md:hidden ">
+              <MobileMenu navElements={navElementsData} />
+            </div>
           </div>
         </div>
       </Container>

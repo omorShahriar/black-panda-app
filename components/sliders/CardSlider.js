@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper";
+
 import "swiper/css";
 
 import "react-multi-carousel/lib/styles.css";
@@ -11,13 +11,27 @@ import Card from "../Card";
 const CardSlider = ({ slides, cardType }) => {
   return (
     <Swiper
-      modules={[Mousewheel]}
-      mousewheel={true}
-      MouseWheel
-      direction={"horizontal"}
-      spaceBetween={150}
-      slidesPerView={3}
-      slidesOffsetBefore={150}
+      spaceBetween={20}
+      slidesPerView={1}
+      slidesOffsetBefore={0}
+      breakpoints={{
+        // when window width is >=
+        500: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+          slidesOffsetBefore: 0,
+        },
+        900: {
+          slidesPerView: 3,
+          spaceBetween: 70,
+          slidesOffsetBefore: 150,
+        },
+        1450: {
+          slidesPerView: 4,
+          spaceBetween: 50,
+          slidesOffsetBefore: 150,
+        },
+      }}
     >
       {slides.map((slide) => {
         return (

@@ -6,10 +6,12 @@ import { PrimaryHeading } from "@/components/Heading";
 import RecentArticles from "@/components/ArticleRelated/RecentArticles";
 import RecentProducts from "@/components/ProductRelated/RecentProducts";
 
+export const revalidate = 60;
+
 export default function Home() {
   const { hero_slider } = use(getHomePageData());
   return (
-    <main>
+    <>
       <Container>
         <div className="">
           <Slider slides={hero_slider.slides} />
@@ -23,6 +25,6 @@ export default function Home() {
           <RecentProducts />
         </section>
       </Container>
-    </main>
+    </>
   );
 }
