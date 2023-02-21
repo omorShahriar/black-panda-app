@@ -1,9 +1,6 @@
 import { getAboutPageData } from "@/lib/api";
 import MarkDown from "@/components/MarkDown";
 import Container from "@/components/Container";
-export const metadata = {
-  title: "About | Black Panda",
-};
 
 const About = async ({ params: { lng } }) => {
   const blockData = await getAboutPageData(lng);

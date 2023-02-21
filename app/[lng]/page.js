@@ -10,6 +10,16 @@ import RecentProducts from "@/components/ProductRelated/RecentProducts";
 
 export const revalidate = 60;
 
+// export const metadata = {
+//   title: "Black-Panda Wholesale",
+//   description: "Innovative products for modern people",
+//   keywords: "Products,Manufacture,Production,Development",
+//   copyright: "Black-Panda GmbH",
+//   authors: "Black-Panda GmbH",
+//   publisher: "Black-Panda GmbH",
+//   audience: "alle",
+// };
+
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
 
