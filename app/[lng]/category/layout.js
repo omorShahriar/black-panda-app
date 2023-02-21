@@ -2,7 +2,7 @@ import { PrimaryHeading } from "@/components/Heading";
 import { getCategories } from "@/lib/api";
 import Link from "next/link";
 
-const layout = async ({ children }) => {
+const layout = async ({ children, params: { lng } }) => {
   const categoryData = await getCategories();
 
   return (
@@ -17,7 +17,7 @@ const layout = async ({ children }) => {
                 key={category.attributes.slug}
                 className="text-xl font-medium"
               >
-                <Link href={`category/${category.attributes.slug}`}>
+                <Link href={`${lng}/category/${category.attributes.slug}`}>
                   {category.attributes.name}
                 </Link>
               </li>

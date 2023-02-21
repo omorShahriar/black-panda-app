@@ -1,4 +1,3 @@
-import { use } from "react";
 import { getNavigationData } from "@/lib/api";
 import MainMenu from "@/components/MainMenu";
 import Container from "@/components/Container";
@@ -6,9 +5,10 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
+import LanguageSelector from "./LanguageSelector";
 
-const Navigation = () => {
-  const navElementsData = use(getNavigationData());
+const Navigation = async ({ lang }) => {
+  const navElementsData = await getNavigationData(lang);
 
   return (
     <div className="py-4   ">
@@ -26,7 +26,9 @@ const Navigation = () => {
             <MainMenu navElements={navElementsData} />
           </ul>
           <div className="flex gap-x-4 items-center">
-            {" "}
+            <div className="min-h-[32px] min-w-[32px] ">
+              <LanguageSelector lang={lang} />
+            </div>{" "}
             <div className=" w-12 h-12 flex items-center justify-center">
               {" "}
               <ThemeToggle />

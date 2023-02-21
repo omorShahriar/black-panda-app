@@ -2,17 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { getStrapiMedia } from "@/lib/media";
 
-const generateUrl = (slug, type) => {
-  return type === "article" ? `/articles/${slug}` : `/products/${slug}`;
+const generateUrl = (lang, slug, type) => {
+  return type === "article"
+    ? `/${lang}/articles/${slug}`
+    : `/${lang}/products/${slug}`;
 };
 
-const Card = ({ info, cardType }) => {
+const Card = ({ lang = "en", info, cardType }) => {
   const { imageUrl } = getStrapiMedia(info.media);
 
   return (
-    <Link href={generateUrl(info.slug, cardType)} className="">
+    <Link href={generateUrl(lang, info.slug, cardType)} className="">
       {" "}
-      <div className=" flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2">
+      <div className="max-w-[350px] flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2">
         <div className="overflow-hidden">
           <Image
             alt={info.title}

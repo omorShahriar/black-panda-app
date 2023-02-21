@@ -1,3 +1,4 @@
+import { useTranslation } from "@/app/i18n";
 import {
   SiFacebook,
   SiInstagram,
@@ -9,26 +10,27 @@ import { getFooterData } from "@/lib/api";
 import Link from "next/link";
 import Container from "./Container";
 
-const generateSocialIcon = (platform) => {
+const generateSocialIcon = (platform, className) => {
   if (platform == "facebook") {
-    return <SiFacebook />;
+    return <SiFacebook className={className} />;
   }
   if (platform == "instagram") {
-    return <SiInstagram />;
+    return <SiInstagram className={className} />;
   }
   if (platform == "linkedin") {
-    return <SiLinkedin />;
+    return <SiLinkedin className={className} />;
   }
   if (platform == "youtube") {
-    return <SiYoutube />;
+    return <SiYoutube className={className} />;
   }
   if (platform == "twitter") {
-    return <SiTwitter />;
+    return <SiTwitter className={className} />;
   }
 };
 
-const Footer = async () => {
-  const footerData = await getFooterData();
+const Footer = async ({ lang }) => {
+  const { t } = await useTranslation(lang, "footer");
+  const footerData = await getFooterData(lang);
 
   return (
     <footer className="border-t-2 border-t-gray-300 dark:border-t-zinc-700 py-8 ">
@@ -56,9 +58,12 @@ const Footer = async () => {
                 href={socialLink.url}
                 target="_blank"
                 rel="noreferrer"
-                className=" inline-block h-6 w-6 md:h-8 md:w-8"
+                className=" inline-block "
               >
-                {generateSocialIcon(socialLink.platform)}
+                {generateSocialIcon(
+                  socialLink.platform,
+                  "h-6 w-6 md:h-8 md:w-8"
+                )}
               </a>
             ))}
           </div>
@@ -66,7 +71,8 @@ const Footer = async () => {
         <div className="mt-12">
           <p className="text-center ">
             {" "}
-            &copy; {new Date().getFullYear()} Black-Panda. All rights reserved
+            &copy; {new Date().getFullYear()} Black-Panda.{" "}
+            {t("all-rights-reserved")}
           </p>
         </div>
       </Container>

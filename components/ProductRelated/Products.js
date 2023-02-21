@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 import { useState, useEffect } from "react";
 import { fetcher } from "@/lib/api";
 import Button from "../Button";
-const Products = ({ products }) => {
+const Products = ({ products, lang }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const { data, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?pagination[page]=${pageIndex}&pagination[pageSize]=3&populate[0]=media&populate[1]=category`,
@@ -17,17 +17,21 @@ const Products = ({ products }) => {
   return (
     <>
       {" "}
-      <div className="grid grid-cols-fluid md:gap-16 gap-8 ">
+      <div className="grid grid-cols-12 md:gap-16 gap-8 ">
         {isLoading && (
-          <div className="flex items-center justify-center min-h-[400px]">
+          <div className="col-span-12 flex items-center justify-center min-h-[400px]">
             <p>Loading ......</p>
           </div>
         )}
         {!isLoading &&
           data.data.map((product) => {
             return (
-              <div key={product.id}>
-                <Card info={product.attributes} cardType="product" />
+              <div key={product.id} className="col-span-12 md:col-span-3 ">
+                <Card
+                  info={product.attributes}
+                  cardType="product"
+                  lang={lang}
+                />
               </div>
             );
           })}

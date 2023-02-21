@@ -2,7 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-const SearchBar = () => {
+import { useTranslation } from "@/app/i18n/client";
+
+const SearchBar = ({ lang }) => {
+  const { t } = useTranslation(lang);
   const [value, setValue] = useState("");
   const router = useRouter();
   const onSubmit = (e) => {
@@ -22,7 +25,7 @@ const SearchBar = () => {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 dark:text-white bg-transparent bg-clip-padding border border-solid border-gray-300 dark:border-zinc-700 rounded rounded-tr-none rounded-br-none transition ease-in-out m-0 focus:text-gray-700 focus:bg-transparent focus:border-blue-600 focus:outline-none"
-                placeholder="Search products"
+                placeholder={t("search")}
                 aria-label="Search products"
                 aria-describedby="button-addon2"
               />

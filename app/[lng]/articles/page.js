@@ -9,18 +9,18 @@ export const metadata = {
   title: "Articles | Black Panda",
 };
 
-const page = async () => {
+const page = async ({ params: { lng } }) => {
   const { data: articles } = await getArticles();
 
   return (
     <div className="mb-12">
       <Container>
         <Header>Articles </Header>
-        <div className="grid grid-cols-fluid md:gap-12 gap-8">
+        <div className="grid grid-cols-12 md:gap-12 gap-8">
           {articles.map((article) => {
             return (
-              <div key={article.id}>
-                <Card info={article.attributes} cardType="article" />
+              <div key={article.id} className="col-span-12 md:col-span-3">
+                <Card lang={lng} info={article.attributes} cardType="article" />
               </div>
             );
           })}

@@ -1,4 +1,3 @@
-import { use } from "react";
 import { getAboutPageData } from "@/lib/api";
 import MarkDown from "@/components/MarkDown";
 import Container from "@/components/Container";
@@ -6,8 +5,9 @@ export const metadata = {
   title: "About | Black Panda",
 };
 
-const About = () => {
-  const blockData = use(getAboutPageData());
+const About = async ({ params: { lng } }) => {
+  const blockData = await getAboutPageData(lng);
+
   return (
     <Container>
       <div className=" prose lg:prose-xl dark:prose-dark max-w-none">

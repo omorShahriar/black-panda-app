@@ -8,7 +8,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import Card from "../Card";
 
-const CardSlider = ({ slides, cardType }) => {
+const CardSlider = ({ lang, slides, cardType }) => {
   return (
     <Swiper
       spaceBetween={20}
@@ -37,7 +37,7 @@ const CardSlider = ({ slides, cardType }) => {
         return (
           <SwiperSlide key={slide.id}>
             {" "}
-            <Card info={slide.attributes} cardType={cardType} />
+            <Card lang={lang} info={slide.attributes} cardType={cardType} />
           </SwiperSlide>
         );
       })}
