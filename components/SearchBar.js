@@ -11,7 +11,7 @@ const SearchBar = ({ lang }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
-    router.push(`/search?query=${value}`);
+    router.push(`/${lang}/search?query=${value}`);
   };
   return (
     <div className="">

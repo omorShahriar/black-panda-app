@@ -12,9 +12,12 @@ const Card = ({ lang = "en", info, cardType }) => {
   const { imageUrl } = getStrapiMedia(info.media);
 
   return (
-    <Link href={generateUrl(lang, info.slug, cardType)} className="">
+    <Link
+      href={generateUrl(lang, info.slug, cardType)}
+      className=" block h-full "
+    >
       {" "}
-      <div className="max-w-[350px] flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2">
+      <div className=" h-full max-w-[350px] flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2">
         <div className="overflow-hidden">
           <Image
             alt={info.title}
@@ -24,7 +27,7 @@ const Card = ({ lang = "en", info, cardType }) => {
             className=" w-full h-60  object-cover object-center"
           />
         </div>
-        <div className="p-4">
+        <div className=" p-4 flex-grow flex flex-col">
           <h2
             title={info.title}
             className="mb-4 text-base md:text-xl font-bold line-clamp-1"
@@ -33,8 +36,8 @@ const Card = ({ lang = "en", info, cardType }) => {
           </h2>
           <p className=" line-clamp-3 text-sm ">{info?.content}</p>
           {info?.date && (
-            <div className="mt-8">
-              <p>{info.date}</p>
+            <div className="mt-8 self-end flex-grow flex flex-col">
+              <p className="mt-auto">{info.date}</p>
             </div>
           )}
           {info.category?.data && (

@@ -17,6 +17,7 @@ export default async function Head({ params: { lng } }) {
   const { SEO } = await getHomePageData(lng);
 
   const SEO_STRAPI = {
+    ...NEXT_SEO_DEFAULT,
     title: SEO.metaTitle,
     description: SEO.metaDescription,
     additionalMetaTags: generateAdditionalMetaTagsArray(SEO.additionalTags),

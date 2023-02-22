@@ -4,12 +4,9 @@ import Products from "@/components/ProductRelated/Products";
 import { getProducts } from "@/lib/api";
 
 export const revalidate = 300;
-export const metadata = {
-  title: "Products | Black Panda",
-};
 
 const page = async ({ params: { lng } }) => {
-  const products = await getProducts({ page: 0 });
+  const products = await getProducts({ page: 1 });
 
   return (
     <Container>

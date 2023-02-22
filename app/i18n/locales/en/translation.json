@@ -2,5 +2,11 @@
   "search": "Search products",
   "to-all": "View All",
   "recent-articles": "Recent Articles",
-  "recent-products": "Recent Products"
+  "recent-products": "Recent Products",
+  "pagination": {
+    "page": "page",
+    "of": "of",
+    "prev": "Prev",
+    "next": "Next"
+  }
 }

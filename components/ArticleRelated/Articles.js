@@ -1,18 +1,18 @@
 "use client";
 import useSWR from "swr";
 import Card from "@/components/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetcher } from "@/lib/api";
 import Pagination from "../Pagination";
-const Products = ({ products, lang }) => {
+const Articles = ({ articles, lang }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const decreasePageIndex = () => setPageIndex((p) => p - 1);
   const increasePageIndex = () => setPageIndex((p) => p + 1);
   const { data, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?pagination[page]=${pageIndex}&pagination[pageSize]=8&populate[0]=media&populate[1]=category`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/articles?pagination[page]=${pageIndex}&pagination[pageSize]=8&populate[0]=media`,
     fetcher,
     {
-      fallbackData: products,
+      fallbackData: articles,
     }
   );
 
@@ -26,12 +26,12 @@ const Products = ({ products, lang }) => {
           </div>
         )}
         {!isLoading &&
-          data.data.map((product) => {
+          data.data.map((article) => {
             return (
-              <div key={product.id} className="col-span-12 md:col-span-3 ">
+              <div key={article.id} className="col-span-12 md:col-span-3 ">
                 <Card
-                  info={product.attributes}
-                  cardType="product"
+                  info={article.attributes}
+                  cardType="article"
                   lang={lang}
                 />
               </div>
@@ -49,4 +49,4 @@ const Products = ({ products, lang }) => {
   );
 };
 
-export default Products;
+export default Articles;

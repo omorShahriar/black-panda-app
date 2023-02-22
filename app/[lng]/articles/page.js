@@ -1,22 +1,19 @@
-import Card from "@/components/Card";
+import Articles from "@/components/ArticleRelated/Articles";
+
 import Container from "@/components/Container";
 import Header from "@/components/Header";
 import { getArticles } from "@/lib/api";
 
 export const revalidate = 300;
 
-export const metadata = {
-  title: "Articles | Black Panda",
-};
-
 const page = async ({ params: { lng } }) => {
-  const { data: articles } = await getArticles();
+  const articles = await getArticles({ page: 1 });
 
   return (
     <div className="mb-12">
       <Container>
         <Header>Articles </Header>
-        <div className="grid grid-cols-12 md:gap-12 gap-8">
+        {/* <div className="grid grid-cols-12 md:gap-12 gap-8">
           {articles.map((article) => {
             return (
               <div key={article.id} className="col-span-12 md:col-span-3">
@@ -24,7 +21,8 @@ const page = async ({ params: { lng } }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
+        <Articles articles={articles} lang={lng} />
       </Container>
     </div>
   );
