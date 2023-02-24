@@ -1,10 +1,8 @@
-import { use } from "react";
 import { getRecentArticles } from "@/lib/api";
-
 import CardSlider from "../sliders/CardSlider";
 
-const RecentArticles = ({ lang }) => {
-  const { data: articles } = use(getRecentArticles());
+const RecentArticles = async ({ lang }) => {
+  const { data: articles } = await getRecentArticles();
 
   return (
     <div>

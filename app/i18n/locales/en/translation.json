@@ -8,5 +8,9 @@
     "of": "of",
     "prev": "Prev",
     "next": "Next"
+  },
+  "header": {
+    "products": "Products",
+    "articles": "Articles"
   }
 }

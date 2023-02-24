@@ -8,5 +8,9 @@
     "of": "von",
     "prev": "Vorherig",
     "next": "Nächste"
+  },
+  "header": {
+    "products": "Produkte",
+    "articles": "Magazin"
   }
 }

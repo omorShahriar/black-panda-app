@@ -2,11 +2,12 @@ import { useTranslation } from "@/app/i18n";
 
 import Link from "next/link";
 import Container from "@/components/Container";
-import { getHomePageData } from "@/lib/api";
+import { getHomePageData, getMarqueeNews } from "@/lib/api";
 import Slider from "@/components/sliders/MainCarousel";
 import { PrimaryHeading } from "@/components/Heading";
 import RecentArticles from "@/components/ArticleRelated/RecentArticles";
 import RecentProducts from "@/components/ProductRelated/RecentProducts";
+import MarqueeContainer from "@/components/MarqueeContainer";
 
 export const revalidate = 60;
 
@@ -22,14 +23,34 @@ export const revalidate = 60;
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
-
   const { hero_slider } = await getHomePageData(lng);
+  const { newsLinks } = await getMarqueeNews(lng);
+
   return (
     <>
       <Container>
         <div className="">
           <Slider slides={hero_slider.slides} />
         </div>
+      </Container>
+      <section className="mb-40 mt-32 min-h-[100px]">
+        <MarqueeContainer>
+          {newsLinks.map((news) => (
+            <p
+              key={news.id}
+              className="px-12 border-r  text-7xl font-bold  overflow-hidden"
+            >
+              <Link
+                href={news.href}
+                className="hover:text-blue-700 transition-colors duration-200 "
+              >
+                {news.label}
+              </Link>
+            </p>
+          ))}
+        </MarqueeContainer>
+      </section>
+      <Container>
         <section className="my-20">
           <PrimaryHeading>{t("recent-articles")}</PrimaryHeading>
           <RecentArticles lang={lng} />

@@ -35,7 +35,7 @@ const Slider = ({ slides }) => {
                 height={height}
                 alt={slide.title}
                 priority
-                className="rounded-md w-full max-h-96 object-cover object-center  "
+                className="rounded-md w-full max-h-[400px] object-cover object-center  "
               />
             </div>
           </SwiperSlide>
