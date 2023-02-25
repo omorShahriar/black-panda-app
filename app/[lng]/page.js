@@ -38,7 +38,7 @@ export default async function Home({ params: { lng } }) {
           {newsLinks.map((news) => (
             <p
               key={news.id}
-              className="px-12 border-r  text-7xl font-bold  overflow-hidden"
+              className="px-12 border-r py-8  md:text-7xl text-3xl font-bold  overflow-hidden"
             >
               <Link
                 href={news.href}
