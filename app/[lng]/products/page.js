@@ -4,9 +4,8 @@ import Header from "@/components/Header";
 import Products from "@/components/ProductRelated/Products";
 import { getProducts } from "@/lib/api";
 
-export const revalidate = 300;
-
 const page = async ({ params: { lng } }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng);
   const products = await getProducts({ page: 1 });
 

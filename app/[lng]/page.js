@@ -9,8 +9,6 @@ import RecentArticles from "@/components/ArticleRelated/RecentArticles";
 import RecentProducts from "@/components/ProductRelated/RecentProducts";
 import MarqueeContainer from "@/components/MarqueeContainer";
 
-export const revalidate = 60;
-
 // export const metadata = {
 //   title: "Black-Panda Wholesale",
 //   description: "Innovative products for modern people",
