@@ -26,11 +26,10 @@ export default async function Home({ params: { lng } }) {
 
   return (
     <>
-      <Container>
-        <div className="">
-          <Slider slides={hero_slider.slides} />
-        </div>
-      </Container>
+      <div className="my-12 px-4">
+        <Slider slides={hero_slider.slides} />
+      </div>
+      <Container></Container>
       <section className="mb-40 mt-32 min-h-[100px]">
         <MarqueeContainer>
           {newsLinks.map((news) => (
