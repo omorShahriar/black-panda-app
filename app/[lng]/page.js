@@ -8,16 +8,15 @@ import { PrimaryHeading } from "@/components/Heading";
 import RecentArticles from "@/components/ArticleRelated/RecentArticles";
 import RecentProducts from "@/components/ProductRelated/RecentProducts";
 import MarqueeContainer from "@/components/MarqueeContainer";
+import ViewAll from "@/components/ViewAll";
 
-// export const metadata = {
-//   title: "Black-Panda Wholesale",
-//   description: "Innovative products for modern people",
-//   keywords: "Products,Manufacture,Production,Development",
-//   copyright: "Black-Panda GmbH",
-//   authors: "Black-Panda GmbH",
-//   publisher: "Black-Panda GmbH",
-//   audience: "alle",
-// };
+export const metadata = {
+  keywords: "Products,Manufacture,Production,Development",
+  copyright: "Black-Panda GmbH",
+  authors: "Black-Panda GmbH",
+  publisher: "Black-Panda GmbH",
+  audience: "alle",
+};
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
@@ -26,9 +25,12 @@ export default async function Home({ params: { lng } }) {
 
   return (
     <>
-      <div className="my-12 px-4">
-        <Slider slides={hero_slider.slides} />
-      </div>
+      <Container>
+        <div className="px-2">
+          <Slider slides={hero_slider.slides} />
+        </div>
+      </Container>
+
       <Container></Container>
       <section className="mb-40 mt-32 min-h-[100px]">
         <MarqueeContainer>
@@ -52,18 +54,15 @@ export default async function Home({ params: { lng } }) {
           <PrimaryHeading>{t("recent-articles")}</PrimaryHeading>
           <RecentArticles lang={lng} />
           <div className="mt-12 flex justify-end">
-            <Link className="" href={`/${lng}/articles`}>
-              {t("to-all")}
-            </Link>
+            <ViewAll lang={lng} page="articles" />
           </div>
         </section>
         <section className="my-20">
           <PrimaryHeading>{t("recent-products")}</PrimaryHeading>
           <RecentProducts lang={lng} />
           <div className="mt-12 flex justify-end">
-            <Link className="" href={`/${lng}/products`}>
-              {t("to-all")}
-            </Link>
+            {" "}
+            <ViewAll lang={lng} page="products" />
           </div>
         </section>
       </Container>

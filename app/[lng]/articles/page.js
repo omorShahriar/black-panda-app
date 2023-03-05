@@ -5,6 +5,10 @@ import Container from "@/components/Container";
 import Header from "@/components/Header";
 import { getArticles } from "@/lib/api";
 
+export const metadata = {
+  title: "Articles",
+};
+
 const page = async ({ params: { lng } }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng);
