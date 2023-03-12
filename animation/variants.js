@@ -62,8 +62,7 @@ export const gridVariants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.5,
-      delayChildren: 0.3,
+      staggerChildren: 0.01,
     },
   },
 };

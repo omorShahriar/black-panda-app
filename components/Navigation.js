@@ -1,4 +1,5 @@
-import { getNavigationData } from "@/lib/api";
+import { getNavigationData, getSiteInfo } from "@/lib/api";
+import { getStrapiMedia } from "@/lib/media";
 import MainMenu from "@/components/MainMenu";
 import Container from "@/components/Container";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -9,7 +10,7 @@ import LanguageSelector from "./LanguageSelector";
 
 const Navigation = async ({ lang }) => {
   const navElementsData = await getNavigationData(lang);
-
+  const { logo } = await getSiteInfo(lang);
   return (
     <div className="py-4   ">
       <Container>
@@ -18,7 +19,7 @@ const Navigation = async ({ lang }) => {
             <Link href="/">
               {" "}
               <Image
-                src="/logo.svg"
+                src={`${getStrapiMedia(logo).imageUrl ?? "/logo.svg"}`}
                 width={100}
                 height={60}
                 alt="black panda logo"

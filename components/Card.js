@@ -21,7 +21,7 @@ const Card = ({ lang = "en", info, cardType }) => {
         <div className="overflow-hidden">
           <Image
             alt={info.title}
-            src={imageUrl}
+            src={imageUrl ?? "/placeholder.jpg"}
             width={800}
             height={500}
             className=" w-full h-60  object-cover object-center"

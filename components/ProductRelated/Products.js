@@ -4,11 +4,8 @@ import Card from "@/components/Card";
 import { useState } from "react";
 import { fetcher } from "@/lib/api";
 import Pagination from "../Pagination";
-import {
-  GridElementWrapper,
-  GridFadeInWrapper,
-} from "../InViewAnimatedWrappers/Wrapper";
-
+import { motion as m } from "framer-motion";
+import { gridVariants, gridElementVariants } from "@/animation/variants";
 const Products = ({ products, lang }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const decreasePageIndex = () => setPageIndex((p) => p - 1);
@@ -28,14 +25,25 @@ const Products = ({ products, lang }) => {
           <p>Loading ......</p>
         </div>
       ) : (
-        <GridFadeInWrapper>
+        <m.div
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          className="grid grid-cols-12 md:gap-16 gap-8"
+        >
           {data.data.map((product) => (
-            <GridElementWrapper key={product.id}>
+            <m.div
+              className="col-span-12 md:col-span-3"
+              key={product.id}
+              variants={gridElementVariants}
+              initial="hidden"
+              whileInView="visible"
+            >
               {" "}
               <Card info={product.attributes} cardType="product" lang={lang} />
-            </GridElementWrapper>
+            </m.div>
           ))}
-        </GridFadeInWrapper>
+        </m.div>
       )}
 
       <Pagination
