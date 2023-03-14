@@ -14,8 +14,6 @@ export const metadata = {
   keywords: "Products,Manufacture,Production,Development",
   copyright: "Black-Panda GmbH",
   authors: "Black-Panda GmbH",
-  publisher: "Black-Panda GmbH",
-  audience: "alle",
 };
 
 export default async function Home({ params: { lng } }) {
@@ -31,7 +29,6 @@ export default async function Home({ params: { lng } }) {
         </div>
       </Container>
 
-      <Container></Container>
       <section className="mb-40 mt-32 min-h-[100px]">
         <MarqueeContainer>
           {newsLinks.map((news) => (

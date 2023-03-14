@@ -3,7 +3,7 @@ import CardSlider from "../sliders/CardSlider";
 import { FadeInTopWrapper } from "../InViewAnimatedWrappers/Wrapper";
 
 const RecentArticles = async ({ lang }) => {
-  const { data: articles } = await getRecentArticles();
+  const { data: articles } = await getRecentArticles(lang);
 
   return (
     <FadeInTopWrapper>

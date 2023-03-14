@@ -12,7 +12,7 @@ export const metadata = {
 const page = async ({ params: { lng } }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng);
-  const articles = await getArticles({ page: 1 });
+  const articles = await getArticles({ page: 1, locale: lng });
 
   return (
     <div className="mb-12">

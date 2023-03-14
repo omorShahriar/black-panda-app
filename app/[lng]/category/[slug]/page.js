@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 const page = async ({ params }) => {
-  const categoryData = await getCategoryBySlug(params.slug);
+  const categoryData = await getCategoryBySlug(params.lng, params.slug);
 
   return (
     <div>
@@ -22,7 +22,11 @@ const page = async ({ params }) => {
           {categoryData?.products.data.map((product) => {
             return (
               <div key={product?.id} className="md:col-span-3 col-span-12">
-                <Card info={product?.attributes} cardType="product" />
+                <Card
+                  info={product?.attributes}
+                  cardType="product"
+                  lang={params.lng}
+                />
               </div>
             );
           })}

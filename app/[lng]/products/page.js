@@ -11,7 +11,7 @@ export const metadata = {
 const page = async ({ params: { lng } }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng);
-  const products = await getProducts({ page: 1 });
+  const products = await getProducts({ page: 1, locale: lng });
 
   return (
     <Container>
