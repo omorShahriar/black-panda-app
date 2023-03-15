@@ -24,7 +24,7 @@ export default async function Home({ params: { lng } }) {
   return (
     <>
       <Container>
-        <div className="px-2">
+        <div className=" md:mt-1 mt-14">
           <Slider slides={hero_slider.slides} />
         </div>
       </Container>

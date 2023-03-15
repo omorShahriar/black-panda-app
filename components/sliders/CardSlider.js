@@ -11,9 +11,10 @@ import Card from "../Card";
 const CardSlider = ({ lang, slides, cardType }) => {
   return (
     <Swiper
-      spaceBetween={20}
-      slidesPerView={2}
+      spaceBetween={15}
+      slidesPerView={1.2}
       slidesOffsetBefore={0}
+      centeredSlides={true}
       breakpoints={{
         // when window width is >=
 
