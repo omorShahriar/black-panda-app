@@ -37,7 +37,7 @@ export const page = async ({ params }) => {
         <Title>{articleData?.title}</Title>
         <FadeInTopWrapper>
           {" "}
-          <article className=" prose lg:prose-xl max-w-none dark:prose-dark">
+          <article className=" prose lg:prose-xl max-w-none dark:prose-dark prose-p:text-gray-300">
             <MarkDown content={articleData?.content} />
           </article>
         </FadeInTopWrapper>

@@ -33,7 +33,7 @@ const Footer = async ({ lang }) => {
   const footerData = await getFooterData(lang);
 
   return (
-    <footer className="border-t-2 border-t-gray-300 dark:border-t-zinc-700 py-8 ">
+    <footer className="border-t-2 border-t-gray-300 dark:border-t-zinc-700 py-8 bg-white dark:bg-zinc-900">
       <Container>
         <div className="flex gap-8 md:gap-16 flex-col md:flex-row justify-between items-center">
           <div className="flex gap-8 md:gap-16 flex-col md:flex-row text-center md:text-right">

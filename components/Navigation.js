@@ -23,6 +23,7 @@ const Navigation = async ({ lang }) => {
                 width={100}
                 height={60}
                 alt="black panda logo"
+                priority
               />
             </Link>
           </div>

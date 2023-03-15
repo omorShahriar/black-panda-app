@@ -9,7 +9,7 @@ const ViewAll = async ({ lang, page }) => {
       {" "}
       <Link
         href={`/${lang}/${page}`}
-        className="font-sans font-bold text-black dark:text-white text-2xl"
+        className="font-sans font-bold text-gray-100 text-2xl"
       >
         <div className="  ">
           <span className="relative  "> {t("to-all")}</span>

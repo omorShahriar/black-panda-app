@@ -44,7 +44,7 @@ const MarkDown = ({ content }) => {
           </div>
         );
       }
-      return <p>{paragraph.children}</p>;
+      return <p className="  ">{paragraph.children}</p>;
     },
   };
   return (

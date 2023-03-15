@@ -23,7 +23,7 @@ const page = async ({ params }) => {
   }
   return (
     <Container>
-      <div className="prose-p:text-black dark:prose-p:text-white prose lg:prose-xl dark:prose-dark max-w-none py-20 min-h-[calc(100vh-176.5px)]">
+      <div className="prose-headings:text-gray-100 prose-a:text-gray-100 prose-p:text-gray-300 prose-ol:text-gray-100 prose-ul:text-gray-100  prose-li:text-gray-300 dark:prose-p:text-white prose lg:prose-xl dark:prose-dark max-w-none py-20 min-h-[calc(100vh-176.5px)]">
         <MarkDown content={data.blocks[0].content} />
       </div>
     </Container>

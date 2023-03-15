@@ -18,7 +18,7 @@ const layout = async ({ children, params: { lng } }) => {
             {categoryData.map((category) => (
               <li
                 key={category.attributes.slug}
-                className="text-xl font-medium"
+                className="text-xl font-medium text-gray-100"
               >
                 <Link href={`${lng}/category/${category.attributes.slug}`}>
                   {category.attributes.name}

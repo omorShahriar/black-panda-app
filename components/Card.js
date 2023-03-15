@@ -17,7 +17,7 @@ const Card = ({ lang = "en", info, cardType }) => {
       className=" block h-full "
     >
       {" "}
-      <div className="mx-auto h-full max-w-[350px] flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2">
+      <div className="mx-auto h-full max-w-[350px]  bg-white flex flex-col overflow-hidden rounded-md  dark:border-zinc-700 border-gray-300 border-2 text-gray-800">
         <div className="overflow-hidden">
           <Image
             alt={info.title}
