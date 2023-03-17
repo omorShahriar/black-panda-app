@@ -54,7 +54,7 @@ export const page = async ({ params }) => {
           )}
         </div>
         <Title>{productData.title}</Title>
-        <article className=" prose prose-p:text-gray-300 lg:prose-xl max-w-none dark:prose-dark">
+        <article className="  lg:prose-xl max-w-none prose-dark">
           <MarkDown content={productData.description} />
         </article>
       </Container>
