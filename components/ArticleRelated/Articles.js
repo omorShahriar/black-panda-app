@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import useSWR from "swr";
 import Card from "@/components/Card";
 import { useState, useEffect } from "react";
@@ -6,6 +7,7 @@ import { fetcher } from "@/lib/api";
 import Pagination from "../Pagination";
 import { motion as m } from "framer-motion";
 import { gridVariants, gridElementVariants } from "@/animation/variants";
+
 const Articles = ({ articles, lang }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const decreasePageIndex = () => setPageIndex((p) => p - 1);
@@ -22,7 +24,7 @@ const Articles = ({ articles, lang }) => {
     <>
       {isLoading && (
         <div className="col-span-12 flex items-center justify-center min-h-[400px]">
-          <p>Loading ......</p>
+          <Image src="/spinner.svg" alt="spinner" width={100} height={100} />
         </div>
       )}
       <m.div

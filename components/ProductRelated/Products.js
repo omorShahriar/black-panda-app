@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import useSWR from "swr";
 import Card from "@/components/Card";
 import { useState } from "react";
@@ -22,7 +23,7 @@ const Products = ({ products, lang }) => {
     <>
       {isLoading ? (
         <div className="w-full flex items-center justify-center min-h-[400px]">
-          <p>Loading ......</p>
+          <Image src="/spinner.svg" alt="spinner" width={100} height={100} />
         </div>
       ) : (
         <m.div

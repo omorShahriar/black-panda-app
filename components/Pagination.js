@@ -10,7 +10,7 @@ const Pagination = ({
 }) => {
   const { t } = useTranslation(lang);
   return (
-    <div className="my-12 flex gap-4 md:gap-8 flex-col md:flex-row items-center justify-center">
+    <div className="my-12 flex gap-4 md:gap-8 flex-col md:flex-row items-center justify-center text-gray-100">
       {pageIndex === 1 &&
       pageIndex === (data && data.meta.pagination.pageCount) ? null : (
         <div className="flex gap-x-4 md:gap-x-8">
