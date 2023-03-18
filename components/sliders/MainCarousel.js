@@ -12,22 +12,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import { FadeInTopWrapper } from "../InViewAnimatedWrappers/Wrapper";
 import { CgArrowLongRight, CgArrowLongLeft } from "react-icons/cg";
-import { useRef } from "react";
 
 const Slider = ({ slides }) => {
-  const swiperRef = useRef();
   return (
     <FadeInTopWrapper>
       {" "}
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
+        navigation={true}
         pagination={{ clickable: true }}
         loop={true}
         spaceBetween={50}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
       >
         {slides.map((slide) => {
           const { imageUrl, width, height } = getStrapiMedia(slide.image);
@@ -57,20 +53,6 @@ const Slider = ({ slides }) => {
           );
         })}
       </Swiper>
-      <div className="mt-4 gap-x-8 flex justify-center  text-3xl text-gray-300 hover:text-gray-100 transition-colors duration-300">
-        <button
-          onClick={() => swiperRef.current.slidePrev()}
-          className="transition-colors duration-300 py-1 px-8 rounded-md border-2 border-gray-500 hover:border-gray-100"
-        >
-          <CgArrowLongLeft />
-        </button>
-        <button
-          onClick={() => swiperRef.current.slideNext()}
-          className=" transition-colors duration-300 py-1 px-8 rounded-md border-2 border-gray-500 hover:border-gray-100"
-        >
-          <CgArrowLongRight />
-        </button>
-      </div>
     </FadeInTopWrapper>
   );
 };

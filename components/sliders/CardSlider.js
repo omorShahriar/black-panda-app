@@ -13,20 +13,18 @@ const CardSlider = ({ lang, slides, cardType }) => {
     <Swiper
       spaceBetween={15}
       slidesPerView={1.2}
-      slidesOffsetBefore={0}
       centeredSlides={true}
       breakpoints={{
-        // when window width is >=
-
         900: {
-          slidesPerView: 3,
+          slidesPerView: 3.2,
           spaceBetween: 70,
-          slidesOffsetBefore: 150,
+          centeredSlides: false,
         },
         1450: {
-          slidesPerView: 4,
+          slidesPerView: 4.2,
           spaceBetween: 50,
           slidesOffsetBefore: 150,
+          centeredSlides: false,
         },
       }}
     >
