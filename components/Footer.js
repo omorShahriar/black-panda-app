@@ -37,35 +37,37 @@ const Footer = async ({ lang }) => {
       <Container>
         <div className="flex gap-8 md:gap-16 flex-col md:flex-row justify-between items-center">
           <div className="flex gap-8 md:gap-16 flex-col md:flex-row text-center md:text-right">
-            {footerData.sections.map((section) => (
-              <div
-                key={section.id}
-                className="flex flex-col md:gap-y-4 gap-y-2"
-              >
-                <h2 className="mb-4 mt-4 text-2xl">{section.label}</h2>
-                {section.links.map((link) => (
-                  <Link key={link.id} href={link.href}>
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
+            {footerData?.sections &&
+              footerData?.sections.map((section) => (
+                <div
+                  key={section.id}
+                  className="flex flex-col md:gap-y-4 gap-y-2"
+                >
+                  <h2 className="mb-4 mt-4 text-2xl">{section.label}</h2>
+                  {section.links.map((link) => (
+                    <Link key={link.id} href={link.href}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ))}
           </div>
           <div className="flex gap-8 ">
-            {footerData.socialLinks.map((socialLink) => (
-              <a
-                key={socialLink.id}
-                href={socialLink.url}
-                target="_blank"
-                rel="noreferrer"
-                className=" inline-block "
-              >
-                {generateSocialIcon(
-                  socialLink.platform,
-                  "h-6 w-6 md:h-8 md:w-8"
-                )}
-              </a>
-            ))}
+            {footerData?.sections &&
+              footerData?.socialLinks.map((socialLink) => (
+                <a
+                  key={socialLink.id}
+                  href={socialLink.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className=" inline-block "
+                >
+                  {generateSocialIcon(
+                    socialLink.platform,
+                    "h-6 w-6 md:h-8 md:w-8"
+                  )}
+                </a>
+              ))}
           </div>
         </div>
         <div className="mt-12">

@@ -12,17 +12,17 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params: { lng } }) {
-  const { SEO } = await getHomePageData(lng);
+  const data = await getHomePageData(lng);
 
   return {
     title: {
-      default: SEO?.metaTitle ?? "Black-Panda Wholesale",
-      template: SEO?.metaTitle
-        ? `%s | ${SEO.metaTitle}`
+      default: data?.SEO?.metaTitle ?? "Black-Panda Wholesale",
+      template: data?.SEO?.metaTitle
+        ? `%s | ${data?.SEO.metaTitle}`
         : "%s | Black-Panda Wholesale",
     },
     description:
-      SEO?.metaDescription ??
+      data?.SEO?.metaDescription ??
       "Black-Panda was founded at the end of 2022 by a group of friends. We are into connecting innovative products and people searching for them.",
   };
 }

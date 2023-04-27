@@ -18,14 +18,16 @@ export const metadata = {
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
-  const { hero_slider } = await getHomePageData(lng);
+  const hompageData = await getHomePageData(lng);
   const { newsLinks } = await getMarqueeNews(lng);
 
   return (
     <>
       <Container>
         <div className=" md:mt-1 mt-14">
-          <Slider slides={hero_slider.slides} />
+          {hompageData?.hero_slider ? (
+            <Slider slides={hompageData?.hero_slider.slides} />
+          ) : null}
         </div>
       </Container>
 
